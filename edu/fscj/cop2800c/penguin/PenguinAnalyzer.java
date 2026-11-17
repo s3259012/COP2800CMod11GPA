@@ -1,6 +1,6 @@
 // PenguinAnalyzer.java
-// D. Singletary
-// 3/14/25
+// Gabriela Hernandez
+// 11/16/26
 // Handles file reading, processing, and writing of penguin data
 
 package edu.fscj.cop2800c.penguin;
@@ -92,6 +92,8 @@ public class PenguinAnalyzer {
                         count++; // Increment count after adding a penguin
                     } catch (NumberFormatException e) {
                         System.err.println("Skipping invalid row: " + line);
+                    } catch (InvalidBirdDataException e) {
+                        System.out.println(e);
                     }
                 } else {
                     System.err.println("Skipping malformed row: " + line);

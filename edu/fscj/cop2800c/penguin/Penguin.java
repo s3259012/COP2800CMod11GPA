@@ -1,6 +1,6 @@
 // Penguin.java
-// D. Singletary
-// 3/15/25
+// Gabriela Hernandez
+// 11/16/26
 // Represents a Palmer Penguin
 
 package edu.fscj.cop2800c.penguin;
@@ -14,10 +14,20 @@ public class Penguin extends Bird {
     // Constructor
     public Penguin(int sampleNum, String species, 
                    double culmenLength, double culmenDepth, 
-                   double bodyMass, String sex, double flipperLength) {
+                   double bodyMass, String sex, 
+                   double flipperLength)
+            throws InvalidBirdDataException {
+            
         super(sampleNum, culmenLength, culmenDepth, bodyMass, sex);
+       
+        if (flipperLength < 0 || species == null || species.isEmpty()) {
+            throw new InvalidBirdDataException(
+                    "Invalid Penguin data encountered.");
+        }
+        
         this.species = species;
         this.flipperLength = flipperLength;
+        
     }
 
     // Getter methods
